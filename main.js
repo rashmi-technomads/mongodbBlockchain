@@ -11,5 +11,8 @@ database.onConnect(() => {
     // } 
     blockChain.addNewTransaction("david", "alex", 200)
     blockChain.addNewBlock(null)
+    blockChain.getData()
+    // blockChain.addNewTransaction("jack", "jill", 150)
+    // blockChain.addNewBlock(null)
     console.log("Chain:  ", blockChain.chain)
 })

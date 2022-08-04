@@ -34,7 +34,7 @@ class BlockChain {
                 let newBlock = new blockChainModel(block)
                 newBlock.save((err) => {
                     if(err) return console.log("Cannot save block to DB!", err.message)
-                    console.log("Block saved on the DB")
+                    console.log("Block saved in the DB")
                 })
                 // this.hash = hash(block)
                 this.chain.push(block)
@@ -43,6 +43,13 @@ class BlockChain {
             }) 
 
         }
+    }
+    async getData(){
+        let data = await blockChainModel.find()
+        if (data.length === 0) {
+            console.log("No data found.")
+        }
+        console.log("Data : " + data)
     }
     addNewTransaction(sender, recipient, amount) {
         this.curr_transactions.push({ sender, recipient, amount })
